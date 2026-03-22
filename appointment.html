@@ -72,3 +72,19 @@ document.getElementById("appointmentForm").addEventListener("submit", function(e
 });
 </script>
 </html>
+<script>
+// আজকের date
+let today = new Date();
+
+// max date = আজ থেকে ৩ দিন
+let maxDate = new Date();
+maxDate.setDate(today.getDate() + 3);
+
+// format yyyy-mm-dd
+function formatDate(date){
+  return date.toISOString().split("T")[0];
+}
+
+document.getElementById("date").min = formatDate(today);
+document.getElementById("date").max = formatDate(maxDate);
+</script>
