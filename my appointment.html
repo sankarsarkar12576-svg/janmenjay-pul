@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Appointment</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+    }
+    button {
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Check Your Appointment</h2>
+
+<input type="text" id="phone" placeholder="Enter Phone Number">
+<br>
+<button onclick="checkAppointment()">Check</button>
+
+<h3 id="result"></h3>
+
+<script>
+const sheetURL = "PASTE_YOUR_CSV_LINK";
+
+function checkAppointment() {
+  const phone = document.getElementById("phone").value;
+
+  fetch(sheetURL)
+  .then(res => res.text())
+  .then(data => {
+    const rows = data.split("\n");
+    let found = false;
+
+    rows.forEach(row => {
+      const cols = row.split(",");
+
+      if(cols[2] == phone) { // phone column
+        found = true;
+        document.getElementById("result").innerHTML =
+          "✅ Token: " + cols[0] +
+          "<br>Date: " + cols[3] +
+          "<br>Time: " + cols[4] +
+          "<br>Status: " + cols[6];
+      }
+    });
+
+    if(!found){
+      document.getElementById("result").innerHTML = "❌ No Appointment Found";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
