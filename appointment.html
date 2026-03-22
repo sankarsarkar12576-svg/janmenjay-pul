@@ -43,7 +43,7 @@
 </form>
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbwQ1jEtH88iGUfdr-metkFr9W3sgH0grw6ugS_m44WA_nfhoXzVWecIMKcByTAFK_67/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbyKKSHPETV0fBWsZEWCY7-4yFkmHsKQBBVSmuJkaoOgqD7jjbGLrS_SQHgNa7ygyVai/exec";
 
 document.getElementById("appointmentForm").addEventListener("submit", function(e){
   e.preventDefault();
@@ -58,6 +58,10 @@ document.getElementById("appointmentForm").addEventListener("submit", function(e
 
   fetch(scriptURL, {
     method: "POST",
+    mode: "no-cors",   // 🔥 খুব important
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify(data)
   })
   .then(() => {
@@ -67,6 +71,4 @@ document.getElementById("appointmentForm").addEventListener("submit", function(e
   .catch(() => alert("Error ❌"));
 });
 </script>
-
-</body>
 </html>
