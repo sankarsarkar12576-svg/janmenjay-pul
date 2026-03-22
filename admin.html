@@ -46,3 +46,61 @@ fetch(sheetURL)
 
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+    }
+    table {
+      margin: auto;
+      border-collapse: collapse;
+    }
+    td, th {
+      border: 1px solid black;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  // 🔐 Password Protection
+  var pass = prompt("Enter Admin Password:");
+
+  if(pass !== "1234") {
+    alert("Wrong Password ❌");
+    window.location.href = "index.html";
+  }
+</script>
+
+<h2>Doctor Appointments</h2>
+
+<table id="table"></table>
+
+<script>
+const sheetURL = "PASTE_YOUR_CSV_LINK";
+
+fetch(sheetURL)
+.then(res => res.text())
+.then(data => {
+  const rows = data.split("\n");
+  let html = "";
+
+  rows.forEach(row => {
+    html += "<tr>";
+    row.split(",").forEach(cell => {
+      html += `<td>${cell}</td>`;
+    });
+    html += "</tr>";
+  });
+
+  document.getElementById("table").innerHTML = html;
+});
+</script>
+
+</body>
+</html>
