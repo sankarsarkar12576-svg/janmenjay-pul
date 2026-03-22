@@ -1,29 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Clinic</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      text-align: center;
+      background: #f0f8ff;
+    }
+    header {
+      background: #0077b6;
+      color: white;
+      padding: 20px;
+      font-size: 24px;
+    }
+    .hero {
+      padding: 60px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background: #00b4d8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0096c7;
+    }
+  </style>
+</head>
+<body>
+
+<header>Doctor Appointment System</header>
+
+<div class="hero">
+  <h1>Welcome to Our Clinic</h1>
+  <p>Book your appointment easily online</p>
+  <button onclick="goToAppointment()">Book Appointment</button>
+</div>
+
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbyKKSHPETV0fBWsZEWCY7-4yFkmHsKQBBVSmuJkaoOgqD7jjbGLrS_SQHgNa7ygyVai/exec";
-
-document.getElementById("appointmentForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  const data = {
-    name: document.getElementById("name").value,
-    phone: document.getElementById("phone").value,
-    date: document.getElementById("date").value,
-    time: document.getElementById("time").value,
-    problem: document.getElementById("problem").value
-  };
-
-  fetch(scriptURL, {
-    method: "POST",
-    mode: "no-cors",   // 🔥 খুব important
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-  .then(() => {
-    alert("Appointment Booked ✅");
-    document.getElementById("appointmentForm").reset();
-  })
-  .catch(() => alert("Error ❌"));
-});
+function goToAppointment() {
+  window.location.href = "appointment.html";
+}
 </script>
+
+</body>
+</html>
