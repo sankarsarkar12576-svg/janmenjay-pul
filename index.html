@@ -51,3 +51,124 @@ function goToAppointment() {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Clinic</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #f5f9ff;
+    }
+
+    header {
+      background: #0077b6;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .text {
+      max-width: 400px;
+      margin: 20px;
+    }
+
+    .text h1 {
+      color: #0077b6;
+    }
+
+    .text p {
+      font-size: 18px;
+      color: #333;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      margin: 5px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #00b4d8;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #90e0ef;
+    }
+
+    .image img {
+      width: 300px;
+      border-radius: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #0077b6;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  🏥 Doctor Appointment System
+</header>
+
+<div class="container">
+
+  <div class="text">
+    <h1>Dr. Your Name</h1>
+    <p>Experienced Doctor | 10+ Years Experience</p>
+    <p>Book your appointment easily online.</p>
+
+    <div class="buttons">
+      <button class="btn-primary" onclick="goToAppointment()">Book Appointment</button>
+      <button class="btn-secondary" onclick="goToMy()">My Appointment</button>
+    </div>
+  </div>
+
+  <div class="image">
+    <!-- 👉 এখানে doctor photo link বসাও -->
+    <img src="https://via.placeholder.com/300" alt="Doctor">
+  </div>
+
+</div>
+
+<footer>
+  📞 Contact: 9876543210 | 📍 Your Clinic Address
+</footer>
+
+<script>
+function goToAppointment() {
+  window.location.href = "appointment.html";
+}
+
+function goToMy() {
+  window.location.href = "my.html";
+}
+</script>
+
+</body>
+</html>
